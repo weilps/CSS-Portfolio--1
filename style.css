@@ -1,0 +1,32 @@
+:root {
+    /* on se fait une palette avec des variables couleurs */
+    --color1: #ede4d0;
+    --color2: pink;
+    --color3: #393b4b;
+    --color4: rgb(18,19,19);
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    /* ligne pour que les box se comportent mieux, en general dans tous les projets */
+    box-sizing: border-box;
+}
+
+body {
+    background: url(./bg.jpg) center/cover;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--color1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    background: rgba(0,0,0,0.507);
+    /* espace requis entre les arguments du calcul */
+    width: calc(100% - 50px);
+    display: flex;
+}

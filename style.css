@@ -28,5 +28,46 @@ body {
     background: rgba(0,0,0,0.507);
     /* espace requis entre les arguments du calcul */
     width: calc(100% - 50px);
-    display: flex;
+    /* display: flex; */
+    /* quand 3 arguments: haut, cotés, bas */
+    padding: 20px 20px 6px;
+    box-shadow: 1px -11px 30px black;
+    border-radius: 8px;
+    /* permet de mettre du flou derriere le background */
+    backdrop-filter: blur(5px);
+}
+
+/* evite de creer un div juste pour un petit symbole */
+.card:before {   
+    content: "\2730";
+    position: absolute;
+    top: 14px;
+    right: 20px;
+    font-size: 2.0rem;
+}
+
+h1 {
+    margin-bottom: 12px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    margin-bottom: 24px;
+}
+
+.polygon-container {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+
+}
+
+.polygon 
+{
+    clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
+    /* on a besoin d un background et dune dimension pour commencer a le voir */
+    background: yellow;
+    height: 100px;
 }

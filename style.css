@@ -57,10 +57,13 @@ h1 {
 }
 
 .polygon-container {
-    margin-bottom: 20px;
-    margin-top: 20px;
-    margin-right: 20px;
-    margin-left: 20px;
+    margin: 20px;
+    /* on doit mettre l ombre dans le parent et elle reprend 
+    exactement la forme de l'enfant (pas si facile en CSS)*/
+    filter: drop-shadow(-10px 10px 5px var(--color3));
+    /* ci dessous ne marche que si le parent est en grid */
+    place-self: center;
+    /* place-self: center left; */ /* moins joli ici*/
 
 }
 
@@ -68,6 +71,66 @@ h1 {
 {
     clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
     /* on a besoin d un background et dune dimension pour commencer a le voir */
-    background: yellow;
+    /* on met autant de couleur qu'on veut, les % sont les locations des couleurs (debut / fin) de 0 a 100 */
+    /* background: linear-gradient(135deg, yellow, 0%, orange 50%, red 100%); */
+    background: linear-gradient(135deg, var(--color2) 0%, var(--color1));
     height: 100px;
+    width: 100px;
+    /* cette ombre ne marche pas, pour appliquer une ombre on
+     doit utiliser une commande differente et passer par le parent */
+    /* box-shadow: 2px 2px 4px yellow; */
+}
+
+.polygon:after {
+    content: "A text";
+    position: absolute;
+    color: var(--color2);
+    background: var(--color4);
+    /* focus le centre de l element au lieu du coin haut gauche */
+    transform: translate(-50% , -50%) rotate(5deg);
+    top:50%;
+    left:50%;
+    width: 100px;
+    padding: 4px;
+    text-align: center;
+}
+
+p {
+    /* Ecartement des lignes */
+    line-height: 26px;
+    margin: 20px 0;
+    /* 4 prochines lignes pour s arreter a 4 lignes */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+    text-align: justify;
+}
+
+p::selection {
+    background: var(--color2);
+    color: var(--color3);
+}
+
+.checkbox-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0 30px;
+}
+
+input[type="checkbox"] {
+
+}
+
+input[type="checkbox"]:checked {
+    display:none;
+    
+}
+
+label {
+    cursor:pointer;
+    border: 1px solid var(--color1);
+    background: var(--color3);
+    padding: 10px;
+    border-radius: 5px;
 }
